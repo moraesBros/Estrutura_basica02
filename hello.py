@@ -1,33 +1,22 @@
-from flask import Flask, request, make_response, redirect, abort;
-app = Flask(__name__);
+# A very simple Flask Hello World app for you to get started with...
+
+from flask import Flask
+
+app = Flask(__name__)
 
 @app.route('/')
-def index():
-    return '<h1>Hello World!</h1><h2>Disciplina PTBDSWS</h2>';
+def titulo():
+    return '<p><h1>Aula 030. Semana 02. Estrutura básica da aplicação.</h1></p>'
 
-@app.route('/user/<name>')
-def user(name):
-    return '<h1>Hello, {}!</h1>'.format(name);
+@app.route('/home')
+def home():
+    return 'home'
 
-@app.route('/contextorequisicao')
-def contextorequisicao():
-    user_agent = request.headers.get('User-Agent');
-    return '<p>Your browser is {}</p>'.format(user_agent);
+@app.route('/Identificacao')
+def Identificacao():
+    return '<p><b><h2>Avaliação contínua: Aula 030</h2></b></p><p><b><h3>Aluno: Ednilton S. Moraes</h3></b></p><p><b><h3>Prontuário: PT3025527</h3></b></p><p><b><h4>Instituição: IFSP</h4></b></p><p><h5>Voltar</h5></p>'
 
-@app.route('/codigostatusdiferente')
-def codigostatusdiferente():
-    return '<p>Bad request</p>', 400;
+@app.route('/Contexto')
+def Contexto():
+    return '<p><b><h2>Avaliação contínua: Aula 030</h2></b></p><p><b><h3>Seu navegador é: Mozilla/5.0 (Windows NT 10.0; Win 64; X64) Apple Web Kit/537.36 (KHTML, Like Gecko) Chrome/139.0.0;0</h3></b></p><p><b><h3>O IP do computador remoto é: 10;0;4;170</h3></b></p><p><b><h4>O host da aplicação é: ednilton.pythonanywhere.com</h4></b></p><p><h5>Voltar</h5></p>'
 
-@app.route('/objetoresposta')
-def objetoresposta():
-    response = make_response('<h1>This document carries a cookie!</h1>');
-    response.set_cookie('answer', '42');
-    return response
-
-@app.route('/redirecionamento')
-def redirecionamento():
-    return redirect('https://ptb.ifsp.edu.br/');
-
-@app.route('/abortar')
-def abortar():
-    abort(404);
