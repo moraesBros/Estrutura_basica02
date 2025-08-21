@@ -6,7 +6,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def titulo():
-    return '<p><h1>Aula 030. Semana 02. Estrutura básica da aplicação.</h1></p>'
+    return '''
+        <p><h1>Aula 030. Semana 02. Estrutura básica da aplicação.</h1></p>
+        <p><a href="/home">.Home</a></p>
+         <p><a href="/Identificacao">.Identificacao</a></p>
+          <p><a href="/Contexto">.Contexto</a></p>
+    '''
 
 @app.route('/home')
 def home():
